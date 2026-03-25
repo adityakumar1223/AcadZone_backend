@@ -2,6 +2,7 @@ package com.karan.AcadZone_Backend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "exams")
@@ -13,6 +14,7 @@ public class Exam {
 
     private String subject;          // Subject name of the exam
     private String title;            // Title of the exam
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate examDate;      // Date of the exam
     private int totalMarks;          // Total marks for the exam
 

@@ -3,6 +3,7 @@ package com.karan.AcadZone_Backend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "attendance")
@@ -22,6 +23,7 @@ public class Attendance {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private boolean present;
 
