@@ -3,10 +3,12 @@ package com.karan.AcadZone_Backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.karan.AcadZone_Backend.dto.AttendanceRequestDTO;
 import com.karan.AcadZone_Backend.model.Attendance;
 import com.karan.AcadZone_Backend.model.Book;
 import com.karan.AcadZone_Backend.model.Exam;
 import com.karan.AcadZone_Backend.service.TeacherService;
+
 
 import java.util.List;
 
@@ -15,12 +17,12 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TeacherController {
 
-    @Autowired private TeacherService teacherService;
+	@Autowired private TeacherService teacherService;
 
     // Attendance APIs
     @PostMapping("/attendance")
-    public Attendance markAttendance(@RequestBody Attendance attendance){
-        return teacherService.markAttendance(attendance);
+    public Attendance markAttendance(@RequestBody AttendanceRequestDTO dto){
+        return teacherService.markAttendance(dto);
     }
 
     @GetMapping("/attendance/{teacherId}")
